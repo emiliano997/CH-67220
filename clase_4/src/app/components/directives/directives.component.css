@@ -1,0 +1,15 @@
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+
+.alive {
+  color: blue;
+}
+
+.dead {
+  color: gray;
+}

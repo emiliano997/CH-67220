@@ -1,0 +1,100 @@
+<!-- Interpolación de datos -->
+<ul>
+  <li>Nombre: {{ name }}</li>
+  <li>Apellido: {{ lastName }}</li>
+  <li>Año de nacimiento: {{ 2025 - age }}</li>
+</ul>
+
+<!-- Directiva de atributo -->
+<h3 [ngClass]="hayError ? 'error' : 'success'">
+  <span
+    [ngClass]="{
+      error: age < 18,
+      success: age >= 18
+    }"
+    >Directiva de atributo</span
+  >
+</h3>
+
+<div
+  [style.padding]="styles.padding"
+  [style.backgroundColor]="styles.backgroundColor"
+>
+  <h2 appHighlight>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+  </h2>
+</div>
+
+<!-- Directivas personalizadas -->
+<p appHighlight>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae blanditiis ipsa
+  magni vitae sapiente, hic nesciunt ex, odio ullam aut aliquam doloremque,
+  reiciendis molestiae. Recusandae provident illo ut adipisci atque.
+</p>
+
+<!-- Directivas estructurales -->
+<!-- *ngFor  -->
+<ul>
+  <li *ngFor="let hero of heroes">
+    <!-- Directivas condicionales -->
+    <!-- <span *ngIf="hero.isAlive; else heroIsDead">
+      {{ hero.fullName }} - {{ hero.heroName }}
+    </span> -->
+
+    <span [ngClass]="hero.isAlive ? 'alive' : 'dead'">
+      {{ hero.fullName }} - {{ hero.heroName }}
+    </span>
+
+    <ng-template #heroIsDead> Este héroe está muerto </ng-template>
+  </li>
+</ul>
+
+<!-- @for -->
+<ul>
+  @for (hero of heroes; track hero.fullName) { @if (hero.isAlive) {
+  <li>{{ hero | json }}</li>
+  } @else {
+  <li>{{ "Este héroe está muerto" | uppercase }}</li>
+
+  } } @empty {
+  <li>No hay héroes</li>
+  }
+</ul>
+
+<div style="margin-top: 20px"></div>
+
+<input type="text" [(ngModel)]="actualHero" />
+
+<!-- ngSwitch -->
+<ul [ngSwitch]="actualHero">
+  <li *ngSwitchCase="'superman'">Superman</li>
+  <li *ngSwitchCase="'batman'">El señor de la noche</li>
+  <li *ngSwitchCase="'wonder-woman'">Wonder Woman</li>
+  <li *ngSwitchDefault="">Que onda</li>
+</ul>
+
+<!-- @switch -->
+@switch (actualHero) { @case('superman') {
+<p>Superman</p>
+} @case('batman') {
+<p>El señor de la noche</p>
+} @case('wonder-woman'){
+<p>Wonder Woman</p>
+} @default {
+<p>Que onda</p>
+} }
+
+<button (click)="clearHeroes()">Clear super heroes</button>
+
+<!-- Template statements -->
+<button (click)="showData()">Mostrar datos por consola</button>
+
+<div style="margin-top: 20px"></div>
+
+<!-- Two way binding -->
+<input type="text" [(ngModel)]="name" />
+<input type="text" [(ngModel)]="lastName" />
+
+<p>
+  <strong>Nombre:</strong> {{ name }} <strong>Apellido: </strong> {{ lastName }}
+</p>
