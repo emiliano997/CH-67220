@@ -1,0 +1,17 @@
+<h1 class="text-center my-5">Aplicación Angular</h1>
+
+<div class="container d-flex justify-content-around">
+  <app-nestedcomponent1></app-nestedcomponent1>
+  <app-nestedcomponent2></app-nestedcomponent2>
+</div>
+
+<div class="container gap-3 d-flex flex-column justify-content-center">
+  <h3>Lista de Empleados</h3>
+  <app-add-employee (sendEmployee)="onAddEmployee($event)"></app-add-employee>
+  <app-employee-list
+    (selectedEmployee)="onDeleteEmployee($event)"
+    [employees]="employees"
+  ></app-employee-list>
+
+  <app-employee-list [employees]="employeesDesign"></app-employee-list>
+</div>

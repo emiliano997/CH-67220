@@ -1,0 +1,33 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre Completo</th>
+      <th scope="col">Puesto</th>
+      <th scope="col">Salario</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="align-items-center" *ngFor="let employee of employees">
+      <th scope="row">{{ employee.id }}</th>
+      <td>{{ employee.fullName }}</td>
+      <td>{{ employee.position }}</td>
+      <td>{{ employee.salary }}</td>
+      <td
+        [ngClass]="{
+          'text-success': employee.isActive,
+          'text-danger': !employee.isActive
+        }"
+      >
+        {{ employee.isActive ? "Activo" : "Inactivo" }}
+      </td>
+      <td>
+        <button (click)="onDeleteEmployee(employee.id)" class="btn btn-danger">
+          ELIMINAR
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
