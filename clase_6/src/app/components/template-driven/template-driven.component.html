@@ -1,0 +1,31 @@
+<form #formPersona="ngForm" (ngSubmit)="save()" class="m-3">
+  <div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input
+      type="text"
+      [(ngModel)]="persona.nombre"
+      class="form-control"
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </div>
+  <div class="form-group">
+    <label for="apellido">Apellido</label>
+    <input
+      type="text"
+      [(ngModel)]="persona.apellido"
+      class="form-control"
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </div>
+  <div class="form-group">
+    <label for="age">Edad</label>
+    <input
+      type="number"
+      [(ngModel)]="persona.edad"
+      class="form-control"
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-2">Enviar</button>
+</form>

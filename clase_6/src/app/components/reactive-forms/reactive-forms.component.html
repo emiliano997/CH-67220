@@ -1,0 +1,60 @@
+<form class="p-5" [formGroup]="formulario" (ngSubmit)="submit()">
+  <div class="form-group">
+    <label for="name">Nombre: </label>
+    <input type="text" formControlName="name" class="form-control" id="name" />
+    <div *ngIf="isNameInvalid">
+      <div *ngIf="nameControl?.hasError('required')">
+        <small class="text-danger">El nombre es requerido</small>
+      </div>
+      <div *ngIf="nameControl?.hasError('minlength')">
+        <small class="text-danger">
+          El nombre debe tener al menos 3 caracteres
+        </small>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email: </label>
+    <input
+      type="text"
+      formControlName="email"
+      class="form-control"
+      id="email"
+    />
+    <div *ngIf="isEmailInvalid">
+      <div *ngIf="emailControl?.hasError('required')">
+        <small class="text-danger">El email es requerido</small>
+      </div>
+      <div *ngIf="emailControl?.hasError('email')">
+        <small class="text-danger"> El formato del email es incorrecto </small>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="message">Mensaje: </label>
+    <textarea
+      formControlName="message"
+      class="form-control"
+      id="message"
+    ></textarea>
+
+    <div *ngIf="isMessageInvalid">
+      <div *ngIf="messageControl?.hasError('minlength')">
+        <small class="text-danger">
+          El mensaje debe tener al menos 10 caracteres
+        </small>
+      </div>
+      <div *ngIf="messageControl?.hasError('noRiverAllowed')">
+        <small class="text-danger">
+          El mensaje no puede contener la palabra "river"
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-2">Enviar</button>
+</form>
+
+<pre>
+  {{ formulario.value | json }}
+</pre>
