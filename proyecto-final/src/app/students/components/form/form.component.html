@@ -1,0 +1,26 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()">
+  <div>
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input matInput formControlName="firstName" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Last name</mat-label>
+      <input matInput formControlName="lastName" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Course</mat-label>
+      <mat-select formControlName="course">
+        <mat-option value="angular">Angular</mat-option>
+        <mat-option value="react">React</mat-option>
+        <mat-option value="vue">Vue</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-flat-button type="submit">Add Student</button>
+  </div>
+</form>
