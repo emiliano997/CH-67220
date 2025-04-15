@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../../../shared/components/dialog/dialog.component';
+import { StudentsService } from '../../../../core/services/students.service';
+import { APP_CONFIG, AppConfig } from '../../../../core/injection-token';
+import { DialogComponent } from '../../../../shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'student-form',
@@ -12,7 +14,14 @@ import { DialogComponent } from '../../../shared/components/dialog/dialog.compon
 export class FormComponent {
   formGroup: FormGroup;
 
-  constructor(private fb: FormBuilder, private matDialog: MatDialog) {
+  constructor(
+    private fb: FormBuilder,
+    private matDialog: MatDialog,
+    private studentsService: StudentsService,
+    @Inject(APP_CONFIG) private config: AppConfig
+  ) {
+    console.log(config);
+
     this.formGroup = this.fb.group({
       firstName: [''],
       lastName: [''],
@@ -29,6 +38,7 @@ export class FormComponent {
         next: (confirmed: boolean) => {
           if (confirmed) {
             console.log(this.formGroup.value);
+            this.studentsService.addStudentObs(this.formGroup.value);
             this.formGroup.reset();
           }
         },
