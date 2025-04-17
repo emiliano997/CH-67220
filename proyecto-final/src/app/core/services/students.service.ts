@@ -29,6 +29,14 @@ export class StudentsService {
     return this._students;
   }
 
+  getStudentsPromise(): Promise<Student[]> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(this._students);
+      }, 2000);
+    });
+  }
+
   getStudentsObs() {
     this.dataSubject.next(this._students);
   }

@@ -23,5 +23,12 @@ export class TableComponent implements OnInit {
       console.log(data);
       this.dataSource = data;
     });
+
+    this.studentsService
+      .getStudentsPromise()
+      .then((value) => {
+        console.log(value);
+      })
+      .catch((error) => console.log(error));
   }
 }

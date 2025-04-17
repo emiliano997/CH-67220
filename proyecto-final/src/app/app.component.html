@@ -19,12 +19,27 @@
         <mat-icon>menu</mat-icon>
       </button>
       <span>My App</span>
+
+      {{ (observables | async)?.[1].username }}
+      <!-- {{ (user | async).username }} -->
     </mat-toolbar>
 
-    <!-- Formulario -->
-    <student-form></student-form>
+    <!-- {{ user | async | json }} -->
 
-    <!-- Tabla -->
+    <!-- <pre>
+    {{ users | async | json }}
+    </pre> -->
+
+    {{ observables | async | json }}
+
+    @if (showStudents) {
+    <student-form></student-form>
     <student-table></student-table>
+    <button mat-button (click)="toggleStudents()">Show Courses</button>
+    } @else {
+    <course-form></course-form>
+    <course-table></course-table>
+    <button mat-button (click)="toggleStudents()">Show Students</button>
+    }
   </div>
 </mat-drawer-container>
