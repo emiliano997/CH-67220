@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { Course } from '../interfaces/Course';
-import { CourseService } from '../../../core/services/course.service';
+import { Course } from '../../interfaces/Course';
+import { CourseService } from '../../../../core/services/course.service';
 
 @Component({
   selector: 'course-table',
@@ -9,7 +9,7 @@ import { CourseService } from '../../../core/services/course.service';
   styleUrl: './table.component.scss',
 })
 export class TableComponent implements OnInit {
-  displayedColumns: string[] = ['title', 'description'];
+  displayedColumns: string[] = ['title', 'description', 'see-more'];
   dataSource: Course[] = [];
 
   constructor(

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../../featured/courses/interfaces/Course';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -46,5 +46,19 @@ export class CourseService {
     this._courses = [...this._courses, course];
     this.coursesSubject.next(this._courses);
     this.coursesTitlesSubject.next(this._courses.map((course) => course.title));
+  }
+
+  getByTitle(title: string) {
+    return new Observable<Course>((subscriber) => {
+      const course = this._courses.find(
+        (course) => course.title.toLowerCase() === title.toLowerCase()
+      );
+
+      if (course) {
+        subscriber.next(course);
+      } else {
+        subscriber.error('Course not found');
+      }
+    });
   }
 }

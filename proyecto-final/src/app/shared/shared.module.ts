@@ -14,6 +14,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [SidebarComponent, DialogComponent],
@@ -30,6 +32,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatTableModule,
     MatListModule,
     MatDialogModule,
+    MatCardModule,
+    RouterModule,
   ],
   exports: [
     MatSidenavModule,
@@ -43,6 +47,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatTableModule,
     SidebarComponent,
     MatListModule,
+    MatCardModule,
+    RouterModule,
   ],
 })
 export class SharedModule {}

@@ -23,7 +23,11 @@
   <!-- Symbol Column -->
   <ng-container matColumnDef="course">
     <th mat-header-cell *matHeaderCellDef>Course</th>
-    <td mat-cell *matCellDef="let element">{{ element.course }}</td>
+    <td mat-cell *matCellDef="let element">
+      <a mat-flat-button routerLink="/courses/{{ element.course }}">
+        {{ element.course }}
+      </a>
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

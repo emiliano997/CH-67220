@@ -2,9 +2,9 @@
   <mat-drawer #drawer class="sidenav" mode="side">
     <h2>App</h2>
     <mat-list role="list">
-      <mat-list-item role="listitem">Item 1</mat-list-item>
-      <mat-list-item role="listitem">Item 2</mat-list-item>
-      <mat-list-item role="listitem">Item 3</mat-list-item>
+      <a mat-list-item routerLink="/">Home</a>
+      <a mat-list-item routerLink="/students">Students</a>
+      <a mat-list-item routerLink="/courses">Courses</a>
     </mat-list>
   </mat-drawer>
 
@@ -21,25 +21,12 @@
       <span>My App</span>
 
       {{ (observables | async)?.[1].username }}
-      <!-- {{ (user | async).username }} -->
     </mat-toolbar>
 
-    <!-- {{ user | async | json }} -->
+    <header>
+      <h1>Home Component</h1>
+    </header>
 
-    <!-- <pre>
-    {{ users | async | json }}
-    </pre> -->
-
-    {{ observables | async | json }}
-
-    @if (showStudents) {
-    <student-form></student-form>
-    <student-table></student-table>
-    <button mat-button (click)="toggleStudents()">Show Courses</button>
-    } @else {
-    <course-form></course-form>
-    <course-table></course-table>
-    <button mat-button (click)="toggleStudents()">Show Students</button>
-    }
+    <router-outlet></router-outlet>
   </div>
 </mat-drawer-container>

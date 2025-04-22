@@ -9,11 +9,12 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { SharedModule } from '../../shared/shared.module';
 import { APP_CONFIG } from '../../core/injection-token';
 import { config } from 'rxjs';
+import { StudentsComponent } from './students.component';
 
 @NgModule({
-  declarations: [FormComponent, TableComponent],
+  declarations: [FormComponent, TableComponent, StudentsComponent],
   imports: [CommonModule, SharedModule, MatDialogModule],
-  exports: [FormComponent, TableComponent],
+  exports: [StudentsComponent],
   providers: [
     // {
     //   provide: StudentsService,
