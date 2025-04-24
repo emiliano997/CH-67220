@@ -35,21 +35,19 @@ export class AppComponent {
     // setTimeout(() => {
     //   subscription.unsubscribe();
     // }, 5000);
-
-    this.observables = forkJoin([
-      from(
-        fetch('https://jsonplaceholder.typicode.com/users').then((res) =>
-          res.json()
-        )
-      ),
-      this.getUser(),
-    ]);
-
-    this.observables.subscribe({
-      next: (value) => {
-        console.log(value);
-      },
-    });
+    // this.observables = forkJoin([
+    //   from(
+    //     fetch('https://jsonplaceholder.typicode.com/users').then((res) =>
+    //       res.json()
+    //     )
+    //   ),
+    //   this.getUser(),
+    // ]);
+    // this.observables.subscribe({
+    //   next: (value) => {
+    //     console.log(value);
+    //   },
+    // });
   }
 
   toggleStudents() {

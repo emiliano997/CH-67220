@@ -1,10 +1,10 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { StudentsService } from '../../../../core/services/students.service';
-import { APP_CONFIG, AppConfig } from '../../../../core/injection-token';
-import { DialogComponent } from '../../../../shared/components/dialog/dialog.component';
-import { CourseService } from '../../../../core/services/course.service';
+import { StudentsService } from '../../../../../core/services/students.service';
+import { APP_CONFIG, AppConfig } from '../../../../../core/injection-token';
+import { DialogComponent } from '../../../../../shared/components/dialog/dialog.component';
+import { CourseService } from '../../../../../core/services/course.service';
 import { filter, map, Observable, tap } from 'rxjs';
 
 @Component({

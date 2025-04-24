@@ -5,18 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { SharedModule } from './shared/shared.module';
-import { CoursesModule } from './featured/courses/courses.module';
-import { StudentsModule } from './featured/students/students.module';
-import { HomeComponent } from './featured/home/home.component';
+import { HomeComponent } from './featured/dashboard/home/home.component';
+import { DashboardModule } from './featured/dashboard/dashboard.module';
+import { AuthModule } from './featured/auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StudentsModule,
-    CoursesModule,
     SharedModule,
+    DashboardModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

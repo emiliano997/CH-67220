@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Course } from '../../interfaces/Course';
-import { CourseService } from '../../../../core/services/course.service';
+import { CourseService } from '../../../../../core/services/course.service';
 
 @Component({
   selector: 'course-table',

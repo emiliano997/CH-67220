@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Course } from '../../featured/courses/interfaces/Course';
+
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { Course } from '../../featured/dashboard/courses/interfaces/Course';
 
 @Injectable({
   providedIn: 'root',

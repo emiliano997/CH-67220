@@ -11,7 +11,7 @@ body {
 }
 
 html {
-  color-scheme: light;
+  color-scheme: dark;
   @include mat.theme(
     (
       color: mat.$azure-palette,

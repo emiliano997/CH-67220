@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../../../../shared/components/dialog/dialog.component';
-import { CourseService } from '../../../../core/services/course.service';
+import { DialogComponent } from '../../../../../shared/components/dialog/dialog.component';
+import { CourseService } from '../../../../../core/services/course.service';
 
 @Component({
   selector: 'course-form',
