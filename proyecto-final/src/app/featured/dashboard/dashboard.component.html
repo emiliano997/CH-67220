@@ -1,9 +1,16 @@
 <mat-drawer-container class="container" autosize>
   <mat-drawer #drawer class="sidenav" mode="side">
     <h2>App</h2>
+
     <mat-list role="list">
       <a mat-list-item routerLink="/dashboard"> Home </a>
-      <a mat-list-item routerLink="/dashboard/students"> Students </a>
+      <a
+        mat-list-item
+        routerLink="/dashboard/students"
+        *ngIf="(authUser | async)?.role === 'admin'"
+      >
+        Students
+      </a>
       <a mat-list-item routerLink="/dashboard/courses"> Courses </a>
       <button mat-list-item (click)="logout()">Logout</button>
     </mat-list>

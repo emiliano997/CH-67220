@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,12 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  constructor(private router: Router, private authService: AuthService) {}
+  authUser: Observable<any>;
+
+  constructor(private router: Router, private authService: AuthService) {
+    this.authUser = this.authService.authUser$;
+    console.log(this.authUser);
+  }
 
   logout() {
     this.authService.logout();
