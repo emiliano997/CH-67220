@@ -8,6 +8,11 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './featured/dashboard/home/home.component';
 import { DashboardModule } from './featured/dashboard/dashboard.module';
 import { AuthModule } from './featured/auth/auth.module';
+import {
+  HttpClientModule,
+  provideHttpClient,
+  withFetch,
+} from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -18,7 +23,7 @@ import { AuthModule } from './featured/auth/auth.module';
     DashboardModule,
     AuthModule,
   ],
-  providers: [],
+  providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

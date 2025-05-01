@@ -9,6 +9,8 @@
       <input matInput formControlName="description" />
     </mat-form-field>
 
-    <button mat-flat-button type="submit">Add Course</button>
+    <button mat-flat-button type="submit">
+      {{ isEdit ? "Edit" : "Create" }} Course
+    </button>
   </div>
 </form>
