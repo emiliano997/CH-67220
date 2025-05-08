@@ -1,0 +1,12 @@
+<div>
+  <h1>Counter</h1>
+
+  <h2>
+    {{ value$ | async }}
+  </h2>
+
+  <section>
+    <button (click)="onIncrement()" mat-button>+1</button>
+    <button (click)="onDecrement()" mat-button>-1</button>
+  </section>
+</div>

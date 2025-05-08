@@ -27,6 +27,11 @@ const routes: Routes = [
     component: DetailsComponent,
   },
   {
+    path: 'counter',
+    loadChildren: () =>
+      import('./counter/counter.module').then((m) => m.CounterModule),
+  },
+  {
     path: '**',
     redirectTo: '', // Redirige a la página de inicio si la ruta no coincide con ninguna de las anteriores
   },
