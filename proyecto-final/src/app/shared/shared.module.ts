@@ -15,6 +15,7 @@ import { MatListModule } from '@angular/material/list';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -33,6 +34,7 @@ import { RouterModule } from '@angular/router';
     MatListModule,
     MatDialogModule,
     MatCardModule,
+    MatProgressSpinnerModule,
     RouterModule,
   ],
   exports: [
@@ -48,6 +50,7 @@ import { RouterModule } from '@angular/router';
     SidebarComponent,
     MatListModule,
     MatCardModule,
+    MatProgressSpinnerModule,
     RouterModule,
   ],
 })

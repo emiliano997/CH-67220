@@ -9,7 +9,11 @@
       <input matInput formControlName="description" />
     </mat-form-field>
 
-    <button mat-flat-button type="submit">
+    <button
+      mat-flat-button
+      type="submit"
+      [disabled]="(isLoading$ | async) === true"
+    >
       {{ isEdit ? "Edit" : "Create" }} Course
     </button>
   </div>
